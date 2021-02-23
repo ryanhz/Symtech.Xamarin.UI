@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Symtech.Xamarin.UI</id>
+    <version>1.0.2</version>
+    <authors>Ryan Hu</authors>
+    <owners>Ryan Hu</owners>
+    <license type="file">.\LICENSE.txt</license>
+    <projectUrl>https://github.com/ryanhz/Symtech.Xamarin.UI/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Simple Xamarin Forms UI Library</description>
+    <releaseNotes>Fixed namespace typo; Added sample project; Added README.md.</releaseNotes>
+    <copyright>Copyright : Free </copyright>
+    <tags>xamarin, xamarin.forms, android, ios, plugins, plugin for xamarin, UI</tags>
+    <dependencies>
+		<group targetFramework="net">
+		</group>
+		<group targetFramework="win">
+		</group>
+		<group targetFramework="wp">
+		</group>
+		<group targetFramework="wpa">
+		</group>
+		<group targetFramework="netstandard2.0">
+			<dependency id="NETStandard.Library" version="2.0" />
+		</group>
+		<group targetFramework="MonoAndroid10">
+		</group>
+		<group targetFramework="Xamarin.iOS10">
+		</group>
+		<group targetFramework="Xamarin.Mac20">
+		</group>
+		<group targetFramework="portable-net45+win+wpa81+wp80">
+		</group>
+		<group targetFramework="uap">
+		</group>
+		<group targetFramework="dotnet">
+		</group>
+		<group targetFramework="xamarintvos">
+		</group>
+		<group targetFramework="xamarinwatchos">
+		</group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src=".\LIC*" target="" />
+    <!--Share-->
+    <file src=".\Symtech.Xamarin.UI\bin\Release\netstandard2.0\Symtech.Xamarin.UI.*" target="lib\netstandard" />
+
+    <!--Xamarin.Android-->
+    <file src=".\Symtech.Xamarin.UI.Android\bin\Release\Symtech.Xamarin.UI.*" target="lib\MonoAndroid10" />
+
+    <!--Xamarin.iOS-->
+    <file src=".\Symtech.Xamarin.UI.iOS\bin\Release\Symtech.Xamarin.UI.*" target="lib\Xamarin.iOS10" />
+  </files>
+</package>

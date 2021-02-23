@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:fontawesome="clr-namespace:FontAwesome"
+             xmlns:converters="clr-namespace:Symtech.Xamarin.UI.Converters"
+             x:Class="Symtech.Xamarin.UI.Controls.TimePicker"
+             x:Name="this">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <converters:TimeOfDayConverter x:Key="TimeOfDayConverter" />
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <Grid HorizontalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Frame BorderColor="#e5e5e5" CornerRadius="5" HasShadow="False" Padding="0">
+                <Label x:Name="TimeEntry"
+                    Margin="6,0"
+                    Text="{Binding Time, Mode=OneWay, Converter={StaticResource TimeOfDayConverter}, Source={x:Reference this}}"
+                    FontSize="14"
+                    VerticalOptions="Center"
+                    VerticalTextAlignment="Center">
+                </Label>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnTimeEntryTapped" />
+                </Frame.GestureRecognizers>
+            </Frame>
+            <Button x:Name="ClockButton" Clicked="OnClockButtonClicked" Margin="0" WidthRequest="40" HeightRequest="40" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" BorderRadius="0" BorderWidth="0" BackgroundColor="Transparent" >
+                <Button.ImageSource>
+                    <FontImageSource
+                        FontFamily="FA-R"
+                        Glyph="{x:Static fontawesome:FontAwesomeIcons.Clock}"
+                        Color="{StaticResource PrimaryColor}"
+                        Size="20">
+                    </FontImageSource>
+                </Button.ImageSource>
+            </Button>
+            <TimePicker x:Name="timePicker" Time="{Binding Time, Mode=TwoWay, Source={x:Reference this}}" IsVisible="false"/>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

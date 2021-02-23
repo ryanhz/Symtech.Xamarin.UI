@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:controls="clr-namespace:Symtech.Xamarin.UI.Controls"
+            x:Class="Symtech.Xamarin.UI.Controls.FancyDropdown"
+            x:Name="this">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style x:Key="TitleLabel" TargetType="Label">
+                <Setter Property="Margin" Value="10" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="LineHeight" Value="32" />
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+            <Style x:Key="SubtitleLabel" TargetType="Label">
+                <Setter Property="Margin" Value="0, 10, 0, 20" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="LineHeight" Value="24" />
+                <Setter Property="FontSize" Value="15" />
+            </Style>
+            <Style x:Key="FancyEntry" TargetType="controls:FancyEntry">
+                <Setter Property="Margin" Value="20,5,20,5" />
+                <Setter Property="BorderColor" Value="#E0E0E0" />
+                <Setter Property="TextColor" Value="#374955" />
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="Margin" Value="20,5,20,10" />
+                <Setter Property="BorderColor" Value="#E0E0E0" />
+                <Setter Property="BorderWidth" Value="1" />
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="TextColor" Value="{StaticResource PrimaryColor}" />
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <StackLayout HorizontalOptions="FillAndExpand" Spacing="0">
+            <Grid HorizontalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Frame BorderColor="#e5e5e5" CornerRadius="5" HasShadow="False" Padding="0">
+                    <StackLayout Margin="0" Padding="6" VerticalOptions="Center">
+                        <controls:ContentControl x:Name="contentControl" VerticalOptions="Center" IsVisible="false"/>
+                        <controls:ContentControl x:Name="placeholderControl" VerticalOptions="Center" IsVisible="true"/>
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnDropdownEntryTapped" />
+                    </Frame.GestureRecognizers>
+                </Frame>
+                <Button x:Name="DropdownButton" Clicked="OnDropdownButtonClicked" Image="dropdown.png" Margin="0" WidthRequest="40" HeightRequest="40" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" BorderRadius="0" BorderWidth="0" BackgroundColor="Transparent" />
+            </Grid>
+            <Frame x:Name="DropdownPanel" BorderColor="#e5e5e5"
+                   HasShadow="False" BackgroundColor="White" IsVisible="false"
+                   Margin="0"
+                   Padding="0">
+                <ListView x:Name="DropdownListView"
+                            VerticalOptions="CenterAndExpand"
+                            ItemTapped="OnDropdownItemTapped"
+                            ItemSelected="OnDropdownItemSelected"
+                            SelectionMode="None"
+                            Margin="0"
+                            MinimumHeightRequest="200"
+                            HeightRequest="250"/>
+            </Frame>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

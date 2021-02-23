@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Symtech.Xamarin.UI.Controls"
+             x:Class="Symtech.Xamarin.UI.Controls.FancyEntry"
+             x:Name="this">
+    <ContentView.Content>
+        <StackLayout>
+            <Grid>
+                <Frame
+                    BorderColor="{Binding BorderColor, Source={x:Reference this}}"
+                    CornerRadius="5"
+                    HasShadow="False"/>
+                <StackLayout VerticalOptions="Start" HorizontalOptions="Start">
+                    <BoxView x:Name="BorderEraser"
+                        Color="White"
+                        HeightRequest="1"
+                        WidthRequest="2"
+                        IsVisible="false"/>
+                </StackLayout>
+                <Label
+                    x:Name="EntryLabel"
+                    AnchorY="1"
+                    AnchorX="0"
+                    Margin="10"
+                    Padding="3"
+                    TextColor="{Binding TitleColor, Source={x:Reference this}}"
+                    BackgroundColor="Transparent"
+                    HorizontalOptions="Start"
+                    Text="{Binding Title, Source={x:Reference this}}"/>
+                <local:BorderlessEntry
+                    x:Name="InputEntry"
+                    Margin="6"
+                    Text="{Binding Text, Source={x:Reference this}}" 
+                    ReturnType="{Binding ReturnType, Source={x:Reference this}}"
+                    IsPassword="{Binding IsPassword, Source={x:Reference this}}"
+                    IsReadOnly="{Binding IsReadOnly, Source={x:Reference this}}"
+                    Keyboard="{Binding Keyboard, Source={x:Reference this}}"
+                    Focused="OnEntryFocused"
+                    Unfocused="OnEntryUnfocused"
+                    Completed="HandleCompleted"
+                    BackgroundColor="Transparent"
+                    TextColor="{Binding TextColor, Source={x:Reference this}}" />
+            </Grid>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

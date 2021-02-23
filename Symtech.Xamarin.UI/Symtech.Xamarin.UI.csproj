@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <PackageLicenseExpression></PackageLicenseExpression>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\FontAwesome5Brands.otf" />
+    <None Remove="Resources\FontAwesome5Regular.otf" />
+    <None Remove="Resources\FontAwesome5Solid.otf" />
+    <None Remove="Resources\materialdesignicons-webfont.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\FontAwesome5Brands.otf" />
+    <EmbeddedResource Include="Resources\FontAwesome5Regular.otf" />
+    <EmbeddedResource Include="Resources\FontAwesome5Solid.otf" />
+    <EmbeddedResource Include="Resources\materialdesignicons-webfont.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.10" />
+    <PackageReference Include="Xamarin.Forms" Version="4.8.0.1821" />
+  </ItemGroup>
+
+</Project>

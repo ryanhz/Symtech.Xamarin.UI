@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Symtech.Xamarin.UI.Controls"
+             x:Class="Symtech.Xamarin.UI.Controls.FancyPicker">
+    <ContentView.Content>
+        <Grid HorizontalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Frame BorderColor="#e5e5e5" CornerRadius="5" HasShadow="False" Padding="0">
+                <StackLayout Margin="0" Padding="6" VerticalOptions="Center">
+                    <controls:ContentControl x:Name="contentControl" VerticalOptions="Center" IsVisible="false"/>
+                    <controls:ContentControl x:Name="placeholderControl" VerticalOptions="Center" IsVisible="true"/>
+                </StackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnDropdownEntryTapped" />
+                </Frame.GestureRecognizers>
+            </Frame>
+            <Button x:Name="DropdownButton" Clicked="OnDropdownButtonClicked" Image="dropdown.png" Margin="0" WidthRequest="40" HeightRequest="40" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" BorderRadius="0" BorderWidth="0" BackgroundColor="Transparent" />
+        </Grid>
+    </ContentView.Content>
+</ContentView>

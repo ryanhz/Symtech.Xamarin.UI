@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:fontawesome="clr-namespace:FontAwesome"
+             xmlns:controls="clr-namespace:Symtech.Xamarin.UI.Controls"
+             x:Class="Symtech.Xamarin.UI.Controls.AutoComplete"
+             x:Name="this">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style x:Key="TitleLabel" TargetType="Label">
+                <Setter Property="Margin" Value="10" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="LineHeight" Value="32" />
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+            <Style x:Key="SubtitleLabel" TargetType="Label">
+                <Setter Property="Margin" Value="0, 10, 0, 20" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="LineHeight" Value="24" />
+                <Setter Property="FontSize" Value="15" />
+            </Style>
+            <Style x:Key="FancyEntry" TargetType="controls:FancyEntry">
+                <Setter Property="Margin" Value="20,5,20,5" />
+                <Setter Property="BorderColor" Value="#E0E0E0" />
+                <Setter Property="TextColor" Value="#374955" />
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+  <ContentView.Content>
+        <StackLayout HorizontalOptions="FillAndExpand" Spacing="0">
+            <Grid HorizontalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Frame BorderColor="#e5e5e5" CornerRadius="5" HasShadow="False"/>
+                <controls:BorderlessEntry x:Name="TextEntry"
+                    Margin="6,0"
+                    Text="{Binding Text, Source={x:Reference this}}"
+                    Placeholder="{Binding Placeholder, Source={x:Reference this}}"
+                    TextColor="{Binding TextColor, Source={x:Reference this}}"
+                    ReturnType="{Binding ReturnType, Source={x:Reference this}}"
+                    Keyboard="{Binding Keyboard, Source={x:Reference this}}"
+                    TextChanged="OnTextChanged"
+                    Focused="OnFocused"
+                    Unfocused="OnUnFocused"
+                    FontSize="14"/>
+                <Button x:Name="ClearButton" Clicked="OnClearButtonClicked" Margin="0" WidthRequest="40" HeightRequest="40" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" BorderRadius="0" BorderWidth="0" BackgroundColor="Transparent" IsVisible="false">
+                    <Button.ImageSource>
+                        <FontImageSource
+                            FontFamily="FA-S"
+                            Glyph="{x:Static fontawesome:FontAwesomeIcons.Times}"
+                            Color="Gray"
+                            Size="16">
+                        </FontImageSource>
+                    </Button.ImageSource>
+                </Button>
+            </Grid>
+            <Frame x:Name="DropdownPanel" BorderColor="#e5e5e5"
+                   HasShadow="False" BackgroundColor="White" IsVisible="false"
+                   Margin="0"
+                   Padding="0">
+                <ListView x:Name="SuggestListView"
+                            VerticalOptions="CenterAndExpand"
+                            ItemTapped="OnSuggestItemTapped"
+                            SelectionMode="None"
+                            Margin="0"
+                            MinimumHeightRequest="200"
+                            HeightRequest="250"
+                            RowHeight="60"/>
+            </Frame>
+        </StackLayout>
+  </ContentView.Content>
+</ContentView>
