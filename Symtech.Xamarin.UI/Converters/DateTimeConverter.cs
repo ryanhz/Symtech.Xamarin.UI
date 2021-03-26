@@ -8,12 +8,12 @@ namespace Symtech.Xamarin.UI.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value == null)
+            if (value is DateTime dateTime)
             {
-                return "Never";
-            }
-            else if (value is DateTime dateTime)
-            {
+                if(dateTime == DateTime.MinValue)
+                {
+                    return "Never";
+                }
                 return dateTime.ToString("G");
             }
             return value;

@@ -23,6 +23,8 @@ namespace Symtech.Xamarin.UI.Controls
             propertyChanged: new BindableProperty.BindingPropertyChangedDelegate(OnItemsSourcePropertyChanged));
         public static readonly BindableProperty ItemTemplateProperty = BindableProperty.Create(nameof(ItemTemplate), typeof(DataTemplate), typeof(AutoComplete),
             propertyChanged: new BindableProperty.BindingPropertyChangedDelegate(OnItemTemplatePropertyChanged));
+        public static readonly BindableProperty ItemsHeightRequestProperty = BindableProperty.Create(nameof(ItemRowHeight), typeof(int), typeof(AutoComplete), 60, BindingMode.OneWay, null);
+        public static readonly BindableProperty ItemRowHeightProperty = BindableProperty.Create(nameof(ItemRowHeight), typeof(int), typeof(AutoComplete), 250, BindingMode.OneWay, null);
 
         public static readonly BindableProperty TextChangedCommandProperty = BindableProperty.Create(nameof(TextChangedCommand), typeof(ICommand), typeof(AutoComplete), null);
         public static readonly BindableProperty ItemSelectedCommandProperty = BindableProperty.Create(nameof(ItemSelectedCommand), typeof(ICommand), typeof(AutoComplete), null);
@@ -62,16 +64,32 @@ namespace Symtech.Xamarin.UI.Controls
             set { SetValue(KeyboardProperty, value); }
         }
 
+        /// <summary>The item source of suggestion list</summary>
         public IEnumerable ItemsSource
         {
             get => SuggestListView.ItemsSource;
             set => SuggestListView.ItemsSource = value;
         }
 
+        /// <summary>The item template of row in suggestion list</summary>
         public DataTemplate ItemTemplate
         {
             get => SuggestListView.ItemTemplate;
             set => SuggestListView.ItemTemplate = value;
+        }
+
+        /// <summary>The height of an item row in suggestion list</summary>
+        public int ItemsHeightRequest
+        {
+            get { return (int)GetValue(ItemsHeightRequestProperty); }
+            set { SetValue(ItemsHeightRequestProperty, value); }
+        }
+
+        /// <summary>The height of an item row in suggestion list</summary>
+        public int ItemRowHeight
+        {
+            get { return (int)GetValue(ItemRowHeightProperty); }
+            set { SetValue(ItemRowHeightProperty, value); }
         }
 
         public event EventHandler<TextChangedEventArgs> TextChanged;

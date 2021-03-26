@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Symtech.Xamarin.UI</id>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <authors>Ryan Hu</authors>
     <owners>Ryan Hu</owners>
     <license type="file">.\LICENSE.txt</license>
