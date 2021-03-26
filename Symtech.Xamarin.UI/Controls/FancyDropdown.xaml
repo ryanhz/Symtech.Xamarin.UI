@@ -55,8 +55,11 @@
                 </Frame>
                 <Button x:Name="DropdownButton" Clicked="OnDropdownButtonClicked" Image="dropdown.png" Margin="0" WidthRequest="40" HeightRequest="40" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" BorderRadius="0" BorderWidth="0" BackgroundColor="Transparent" />
             </Grid>
-            <Frame x:Name="DropdownPanel" BorderColor="#e5e5e5"
-                   HasShadow="False" BackgroundColor="White" IsVisible="false"
+            <Frame x:Name="DropdownPanel"
+                   BackgroundColor="{Binding BackgroundColor, Source={x:Reference this}}"
+                   BorderColor="#e5e5e5"
+                   HasShadow="False"
+                   IsVisible="false"
                    Margin="0"
                    Padding="0">
                 <ListView x:Name="DropdownListView"

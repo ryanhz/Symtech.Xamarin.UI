@@ -17,7 +17,7 @@
                     CornerRadius="5"
                     HasShadow="False"/>
                 <controls:BorderlessEntry x:Name="TextEntry"
-                    Margin="6,0"
+                    Margin="6"
                     Text="{Binding Text, Source={x:Reference this}}"
                     Placeholder="{Binding Placeholder, Source={x:Reference this}}"
                     BackgroundColor="{Binding BackgroundColor, Source={x:Reference this}}"
