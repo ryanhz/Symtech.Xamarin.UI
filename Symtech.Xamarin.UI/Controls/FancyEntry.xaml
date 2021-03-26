@@ -8,6 +8,7 @@
         <StackLayout>
             <Grid>
                 <Frame
+                    BackgroundColor="{Binding BackgroundColor, Source={x:Reference this}}"
                     BorderColor="{Binding BorderColor, Source={x:Reference this}}"
                     CornerRadius="5"
                     HasShadow="False"/>

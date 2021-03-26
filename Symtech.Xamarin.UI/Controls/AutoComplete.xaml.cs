@@ -23,8 +23,8 @@ namespace Symtech.Xamarin.UI.Controls
             propertyChanged: new BindableProperty.BindingPropertyChangedDelegate(OnItemsSourcePropertyChanged));
         public static readonly BindableProperty ItemTemplateProperty = BindableProperty.Create(nameof(ItemTemplate), typeof(DataTemplate), typeof(AutoComplete),
             propertyChanged: new BindableProperty.BindingPropertyChangedDelegate(OnItemTemplatePropertyChanged));
-        public static readonly BindableProperty ItemsHeightRequestProperty = BindableProperty.Create(nameof(ItemRowHeight), typeof(int), typeof(AutoComplete), 60, BindingMode.OneWay, null);
-        public static readonly BindableProperty ItemRowHeightProperty = BindableProperty.Create(nameof(ItemRowHeight), typeof(int), typeof(AutoComplete), 250, BindingMode.OneWay, null);
+        public static readonly BindableProperty ItemsHeightRequestProperty = BindableProperty.Create(nameof(ItemRowHeight), typeof(int), typeof(AutoComplete), 250, BindingMode.OneWay, null);
+        public static readonly BindableProperty ItemRowHeightProperty = BindableProperty.Create(nameof(ItemRowHeight), typeof(int), typeof(AutoComplete), 60, BindingMode.OneWay, null);
 
         public static readonly BindableProperty TextChangedCommandProperty = BindableProperty.Create(nameof(TextChangedCommand), typeof(ICommand), typeof(AutoComplete), null);
         public static readonly BindableProperty ItemSelectedCommandProperty = BindableProperty.Create(nameof(ItemSelectedCommand), typeof(ICommand), typeof(AutoComplete), null);
