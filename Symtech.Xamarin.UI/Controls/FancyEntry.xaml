@@ -14,7 +14,7 @@
                     HasShadow="False"/>
                 <StackLayout VerticalOptions="Start" HorizontalOptions="Start">
                     <BoxView x:Name="BorderEraser"
-                        Color="White"
+                        Color="{Binding BackgroundColor, Source={x:Reference this}}"
                         HeightRequest="1"
                         WidthRequest="2"
                         IsVisible="false"/>
