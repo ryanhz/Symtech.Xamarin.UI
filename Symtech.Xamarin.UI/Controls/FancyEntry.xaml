@@ -12,12 +12,12 @@
                     BorderColor="{Binding BorderColor, Source={x:Reference this}}"
                     CornerRadius="5"
                     HasShadow="False"/>
-                <StackLayout VerticalOptions="Start" HorizontalOptions="Start">
+                <StackLayout VerticalOptions="Start" HorizontalOptions="Start"
+                    BackgroundColor="Transparent">
                     <BoxView x:Name="BorderEraser"
-                        Color="{Binding BackgroundColor, Source={x:Reference this}}"
-                        HeightRequest="1"
-                        WidthRequest="2"
-                        IsVisible="false"/>
+                        Color="Transparent"
+                        HeightRequest="2"
+                        WidthRequest="0"/>
                 </StackLayout>
                 <Label
                     x:Name="EntryLabel"
@@ -41,7 +41,7 @@
                     Unfocused="OnEntryUnfocused"
                     Completed="HandleCompleted"
                     BackgroundColor="Transparent"
-                    TextColor="{Binding TextColor, Source={x:Reference this}}" />
+                    TextColor="{Binding TextColor, Source={x:Reference this}}"/>
             </Grid>
         </StackLayout>
     </ContentView.Content>

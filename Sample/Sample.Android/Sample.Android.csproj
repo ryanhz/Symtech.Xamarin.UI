@@ -56,10 +56,7 @@
     <PackageReference Include="Rg.Plugins.Popup">
       <Version>2.0.0.10</Version>
     </PackageReference>
-    <PackageReference Include="Symtech.Xamarin.UI">
-      <Version>1.0.2</Version>
-    </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="4.8.0.1451" />
+    <PackageReference Include="Xamarin.Forms" Version="4.8.0.1821" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
   </ItemGroup>
   <ItemGroup>
@@ -95,8 +92,12 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Sample\Sample.csproj">
-      <Project>{77DF4D0D-4AF0-4BB9-A2B1-A7D4BCC481FE}</Project>
+      <Project>{B7A1B579-3880-443C-B25B-BBCA716172DD}</Project>
       <Name>Sample</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Symtech.Xamarin.UI.Android\Symtech.Xamarin.UI.Android.csproj">
+      <Project>{26BA917F-C1A3-4958-8248-A1C786528FD8}</Project>
+      <Name>Symtech.Xamarin.UI.Android</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

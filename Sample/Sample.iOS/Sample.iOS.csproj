@@ -126,17 +126,18 @@
     <PackageReference Include="Rg.Plugins.Popup">
       <Version>2.0.0.10</Version>
     </PackageReference>
-    <PackageReference Include="Symtech.Xamarin.UI">
-      <Version>1.0.2</Version>
-    </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="4.8.0.1451" />
+    <PackageReference Include="Xamarin.Forms" Version="4.8.0.1821" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\Sample\Sample.csproj">
-      <Project>{3ED9215E-BBCB-4308-856B-EE11C80BD274}</Project>
+      <Project>{B7A1B579-3880-443C-B25B-BBCA716172DD}</Project>
       <Name>Sample</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Symtech.Xamarin.UI.iOS\Symtech.Xamarin.UI.iOS.csproj">
+      <Project>{CBEC3759-C6B7-49BA-9D37-50A26EAB9DEE}</Project>
+      <Name>Symtech.Xamarin.UI.iOS</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

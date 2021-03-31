@@ -117,6 +117,7 @@ namespace Symtech.Xamarin.UI.Controls
             BorderEraser.IsVisible = true;
             BorderEraser.Margin = new Thickness(EntryLabel.Margin.Left, 0, EntryLabel.Margin.Right, 0);
             BorderEraser.WidthRequest = EntryLabel.Width * 0.8;
+            BorderEraser.Color = new Color(BackgroundColor.R, BackgroundColor.G, BackgroundColor.B, 1.0);
 
             EntryLabel.ScaleYTo(0.8);
             EntryLabel.ScaleXTo(0.8);

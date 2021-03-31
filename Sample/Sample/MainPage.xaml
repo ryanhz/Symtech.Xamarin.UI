@@ -26,10 +26,19 @@
             <Style x:Key="ControlGroup" TargetType="StackLayout">
                 <Setter Property="Margin" Value="20,5,20,5" />
             </Style>
+            <!-- Dark mode -->
+            <!--Style x:Key="FancyEntry" TargetType="controls:FancyEntry">
+                <Setter Property="BackgroundColor" Value="Black" />
+                <Setter Property="Margin" Value="20,5,20,5" />
+                <Setter Property="BorderColor" Value="#E0E0E0" />
+                <Setter Property="TitleColor" Value="White" />
+                <Setter Property="TextColor" Value="White" />
+            </Style-->
             <Style x:Key="FancyEntry" TargetType="controls:FancyEntry">
                 <Setter Property="BackgroundColor" Value="#fafafa" />
                 <Setter Property="Margin" Value="20,5,20,5" />
                 <Setter Property="BorderColor" Value="#E0E0E0" />
+                <Setter Property="TitleColor" Value="#374955" />
                 <Setter Property="TextColor" Value="#374955" />
             </Style>
             <Style TargetType="controls:TextEntry">
