@@ -86,6 +86,7 @@ namespace Symtech.Xamarin.UI.Controls
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
                 Margin = new Thickness(6),
                 BackgroundColor = this.BackgroundColor,
+                Spacing = 0,
             };
             stackLayout.Children.Add(listView);
 
