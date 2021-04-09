@@ -9,6 +9,7 @@ namespace Symtech.Xamarin.UI.Controls
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class FancyDropdown : ContentView
     {
+        public static readonly BindableProperty TextColorProperty = BindableProperty.Create(nameof(TextColor), typeof(Color), typeof(FancyDropdown), default(Color), BindingMode.OneWay, null);
 
         public static readonly BindableProperty ItemsSourceProperty = BindableProperty.Create(nameof(ItemsSource), typeof(IEnumerable), typeof(FancyDropdown),
             propertyChanged: new BindableProperty.BindingPropertyChangedDelegate(OnItemsSourceChanged));
@@ -20,6 +21,12 @@ namespace Symtech.Xamarin.UI.Controls
             defaultValue: null, defaultBindingMode: BindingMode.TwoWay, propertyChanged: new BindableProperty.BindingPropertyChangedDelegate(OnSelectedItemChanged));
 
         public static readonly BindableProperty ItemSelectedCommandProperty = BindableProperty.Create(nameof(ItemSelectedCommand), typeof(ICommand), typeof(FancyDropdown), null);
+
+        public Color TextColor
+        {
+            get => (Color)GetValue(TextColorProperty);
+            set => SetValue(TextColorProperty, value);
+        }
 
         public DataTemplate ContentTemplate
         {

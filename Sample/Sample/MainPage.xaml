@@ -73,7 +73,9 @@
                                     ReturnType="Next"
                                     ItemsSource="{Binding QuoteSuggestList}"
                                     TextChanged="OnQuoteTextChanged"
-                                    ItemSelected="OnQuoteItemSelected">
+                                    ItemSelected="OnQuoteItemSelected"
+                                    Focused="OnFocused"
+                                    Unfocused="OnUnfocused">
                             <controls:AutoComplete.ItemTemplate>
                                 <DataTemplate>
                                     <ViewCell>

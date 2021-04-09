@@ -8,6 +8,7 @@ namespace Symtech.Xamarin.UI.Controls
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class TimePicker : ContentView
     {
+        public static readonly BindableProperty TextColorProperty = BindableProperty.Create(nameof(TextColor), typeof(Color), typeof(TimePicker), default(Color), BindingMode.OneWay, null);
         public static readonly BindableProperty TimeProperty = BindableProperty.Create(nameof(Time), typeof(TimeSpan), typeof(TimePicker), (object)new TimeSpan(0L), BindingMode.TwoWay, (BindableProperty.ValidateValueDelegate)((bindable, value) =>
         {
             TimeSpan timeSpan = (TimeSpan)value;
@@ -15,6 +16,12 @@ namespace Symtech.Xamarin.UI.Controls
         }), propertyChanged: TimePropertyChanged);
 
         public event EventHandler<TimeChangedEventArgs> TimeSelected;
+
+        public Color TextColor
+        {
+            get => (Color)GetValue(TextColorProperty);
+            set => SetValue(TextColorProperty, value);
+        }
 
         public TimeSpan Time
         {

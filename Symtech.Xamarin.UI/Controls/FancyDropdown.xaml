@@ -7,31 +7,6 @@
             x:Name="this">
     <ContentView.Resources>
         <ResourceDictionary>
-            <Style x:Key="TitleLabel" TargetType="Label">
-                <Setter Property="Margin" Value="10" />
-                <Setter Property="HorizontalTextAlignment" Value="Center" />
-                <Setter Property="LineHeight" Value="32" />
-                <Setter Property="FontSize" Value="20" />
-                <Setter Property="FontAttributes" Value="Bold" />
-            </Style>
-            <Style x:Key="SubtitleLabel" TargetType="Label">
-                <Setter Property="Margin" Value="0, 10, 0, 20" />
-                <Setter Property="HorizontalTextAlignment" Value="Center" />
-                <Setter Property="LineHeight" Value="24" />
-                <Setter Property="FontSize" Value="15" />
-            </Style>
-            <Style x:Key="FancyEntry" TargetType="controls:FancyEntry">
-                <Setter Property="Margin" Value="20,5,20,5" />
-                <Setter Property="BorderColor" Value="#E0E0E0" />
-                <Setter Property="TextColor" Value="#374955" />
-            </Style>
-            <Style TargetType="Button">
-                <Setter Property="Margin" Value="20,5,20,10" />
-                <Setter Property="BorderColor" Value="#E0E0E0" />
-                <Setter Property="BorderWidth" Value="1" />
-                <Setter Property="BackgroundColor" Value="Transparent" />
-                <Setter Property="TextColor" Value="{StaticResource PrimaryColor}" />
-            </Style>
         </ResourceDictionary>
     </ContentView.Resources>
     <ContentView.Content>
@@ -59,6 +34,7 @@
                         <FontImageSource
                             FontFamily="MaterialDesign"
                             Glyph="{x:Static materialdesign:MaterialdDesignIcons.MenuDown}"
+                            Color="{Binding TextColor, Source={x:Reference this}}"
                             Size="20" />
                     </Button.ImageSource>
                 </Button>
@@ -67,7 +43,7 @@
                    BackgroundColor="{Binding BackgroundColor, Source={x:Reference this}}"
                    BorderColor="#e5e5e5"
                    HasShadow="False"
-                   IsVisible="false"
+                   IsVisible="False"
                    Margin="0"
                    Padding="0">
                 <ListView x:Name="DropdownListView"

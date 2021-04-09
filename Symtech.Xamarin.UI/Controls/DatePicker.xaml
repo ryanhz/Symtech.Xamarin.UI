@@ -15,10 +15,11 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            <Frame BorderColor="#e5e5e5" CornerRadius="5" HasShadow="False" Padding="0">
+            <Frame BorderColor="#e5e5e5" BackgroundColor="{Binding BackgroundColor, Source={x:Reference this}}" CornerRadius="5" HasShadow="False" Padding="0">
                 <Label x:Name="DateEntry"
                     Margin="6,0"
                     Text="{Binding Date, Mode=OneWay, Converter={StaticResource DateConverter}, Source={x:Reference this}}"
+                    TextColor="{Binding TextColor, Source={x:Reference this}}"
                     FontSize="14"
                     VerticalOptions="Center"
                     VerticalTextAlignment="Center">
@@ -32,7 +33,7 @@
                     <FontImageSource
                         FontFamily="FA-R"
                         Glyph="{x:Static fontawesome:FontAwesomeIcons.CalendarAlt}"
-                        Color="{StaticResource PrimaryColor}"
+                        Color="{Binding TextColor, Source={x:Reference this}}"
                         Size="20">
                     </FontImageSource>
                 </Button.ImageSource>

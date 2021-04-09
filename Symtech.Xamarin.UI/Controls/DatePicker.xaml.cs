@@ -8,9 +8,16 @@ namespace Symtech.Xamarin.UI.Controls
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DatePicker : ContentView
     {
+        public static readonly BindableProperty TextColorProperty = BindableProperty.Create(nameof(TextColor), typeof(Color), typeof(DatePicker), default(Color), BindingMode.OneWay, null);
         public static readonly BindableProperty DateProperty = BindableProperty.Create(nameof(Date), typeof(DateTime), typeof(DatePicker), default(DateTime), BindingMode.TwoWay, null, propertyChanged: DatePropertyChanged, propertyChanging: null, defaultValueCreator: (BindableObject bindable) => DateTime.Today);
 
         public event EventHandler<DateChangedEventArgs> DateSelected;
+
+        public Color TextColor
+        {
+            get => (Color)GetValue(TextColorProperty);
+            set => SetValue(TextColorProperty, value);
+        }
 
         public DateTime Date
         {

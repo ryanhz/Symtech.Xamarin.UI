@@ -8,6 +8,8 @@ namespace Symtech.Xamarin.UI.Controls
 {
     public partial class FancyPicker : ContentView
     {
+        public static readonly BindableProperty TextColorProperty = BindableProperty.Create(nameof(TextColor), typeof(Color), typeof(FancyPicker), default(Color), BindingMode.OneWay, null);
+
         public static readonly BindableProperty ItemsSourceProperty = BindableProperty.Create(nameof(ItemsSource), typeof(IEnumerable), typeof(FancyPicker),
             propertyChanged: new BindableProperty.BindingPropertyChangedDelegate(OnItemsSourceChanged));
 
@@ -20,6 +22,12 @@ namespace Symtech.Xamarin.UI.Controls
         private readonly PopupPage popupPage;
         private readonly ListView listView;
         private object selectedItem;
+
+        public Color TextColor
+        {
+            get => (Color)GetValue(TextColorProperty);
+            set => SetValue(TextColorProperty, value);
+        }
 
         public DataTemplate ContentTemplate
         {
@@ -77,7 +85,7 @@ namespace Symtech.Xamarin.UI.Controls
                 VerticalOptions = LayoutOptions.Center,
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
                 Margin = new Thickness(6),
-                BackgroundColor = Color.White,
+                BackgroundColor = this.BackgroundColor,
             };
             stackLayout.Children.Add(listView);
 

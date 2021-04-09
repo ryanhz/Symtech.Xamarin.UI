@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -95,7 +96,9 @@ namespace Sample
             "Blue",
             "Purple",
             "Yellow",
-            "Pink"
+            "Pink",
+            "Orange",
+            "Azure"
         };
 
         public MainPage()
@@ -137,7 +140,18 @@ namespace Sample
 
             changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
         #endregion
+
+        void OnFocused(System.Object sender, Xamarin.Forms.FocusEventArgs e)
+        {
+            Debug.WriteLine("Focus");
+        }
+
+        void OnUnfocused(System.Object sender, Xamarin.Forms.FocusEventArgs e)
+        {
+            Debug.WriteLine("Unfocus");
+        }
     }
 
     public class Quote
