@@ -13,7 +13,7 @@ namespace Symtech.Xamarin.UI.Controls
 
         public static readonly BindableProperty BorderColorProperty = BindableProperty.Create("BorderColor", typeof(Color), typeof(FancyEntry), default(Color), BindingMode.TwoWay, null);
         public static readonly BindableProperty TitleColorProperty = BindableProperty.Create("TitleColor", typeof(Color), typeof(FancyEntry), default(Color), BindingMode.TwoWay, null);
-        public static readonly BindableProperty TextColorProperty = BindableProperty.Create("TextColor", typeof(Color), typeof(FancyEntry), default(Color), BindingMode.TwoWay, null);
+        public static readonly BindableProperty TextColorProperty = BindableProperty.Create("TextColor", typeof(Color), typeof(FancyEntry), default(Color), BindingMode.TwoWay, propertyChanged: new BindableProperty.BindingPropertyChangedDelegate(OnTextPropertyChanged));
 
         public static readonly BindableProperty TextProperty = BindableProperty.Create("Text", typeof(string), typeof(FancyEntry), string.Empty, BindingMode.TwoWay, null);
         public static readonly BindableProperty TitleProperty = BindableProperty.Create("Title", typeof(string), typeof(FancyEntry), string.Empty, BindingMode.TwoWay, null);
@@ -25,6 +25,18 @@ namespace Symtech.Xamarin.UI.Controls
         public FancyEntry()
         {
             InitializeComponent();
+            LayoutChanged += (s, e) => {
+                Device.BeginInvokeOnMainThread(() => {
+                    if (string.IsNullOrEmpty(InputEntry.Text))
+                    {
+                        PutTitleInPlaceholder();
+                    }
+                    else
+                    {
+                        MoveTitleToBorder();
+                    }
+                });
+            };
         }
 
         public Color BorderColor
@@ -81,6 +93,22 @@ namespace Symtech.Xamarin.UI.Controls
             set { SetValue(KeyboardProperty, value); }
         }
 
+        private static void OnTextPropertyChanged(BindableObject bindable, object oldValue, object newValue)
+        {
+            if (bindable is FancyEntry fancyEntry && oldValue != newValue)
+            {
+                Device.BeginInvokeOnMainThread(() => {
+                    if (string.IsNullOrEmpty(fancyEntry.InputEntry.Text))
+                    {
+                        fancyEntry.PutTitleInPlaceholder();
+                    }
+                    else
+                    {
+                        fancyEntry.MoveTitleToBorder();
+                    }
+                });
+            }
+        }
 
         public new void Focus()
         {
@@ -105,14 +133,24 @@ namespace Symtech.Xamarin.UI.Controls
         {
             if (string.IsNullOrEmpty(InputEntry.Text))
             {
-                EntryLabel.ScaleXTo(1);
-                EntryLabel.ScaleYTo(1);
-                EntryLabel.TranslateTo(0, 0);
-                BorderEraser.IsVisible = false;
+                PutTitleInPlaceholder();
             }
         }
 
         private void OnEntryFocused(object sender, FocusEventArgs e)
+        {
+            MoveTitleToBorder();
+        }
+
+        private void PutTitleInPlaceholder()
+        {
+            EntryLabel.ScaleXTo(1);
+            EntryLabel.ScaleYTo(1);
+            EntryLabel.TranslateTo(0, 0);
+            BorderEraser.IsVisible = false;
+        }
+
+        private void MoveTitleToBorder()
         {
             BorderEraser.IsVisible = true;
             BorderEraser.Margin = new Thickness(EntryLabel.Margin.Left, 0, EntryLabel.Margin.Right, 0);

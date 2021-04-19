@@ -105,6 +105,8 @@ namespace Sample
         {
             InitializeComponent();
             BindingContext = this;
+
+            EmailEntry.Text = "a@b.cd";
         }
 
         private async void OnQuoteTextChanged(object sender, TextChangedEventArgs e)
