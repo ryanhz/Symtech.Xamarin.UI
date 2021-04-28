@@ -6,7 +6,7 @@
     <authors>Ryan Hu</authors>
     <owners>Ryan Hu</owners>
     <license type="file">.\LICENSE.txt</license>
-    <projectUrl>https://github.com/ryanhz/Symtech.Xamarin.UI/</projectUrl>
+    <projectUrl>https://bitbucket.org/symtechnz/symtech.xamarin.ui</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Simple Xamarin Forms UI Library</description>
     <releaseNotes>Fixed namespace typo; Added sample project; Added README.md.</releaseNotes>
