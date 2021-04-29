@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:materialdesign="clr-namespace:MaterialdDesign;assembly=Symtech.Xamarin.UI"
+    xmlns:controls="clr-namespace:Symtech.Xamarin.UI.Controls"
+    x:Class="Symtech.Xamarin.UI.Controls.FuzzyDropdown"
+    x:Name="this">
+    <ContentView.Resources>
+        <ResourceDictionary>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <StackLayout HorizontalOptions="FillAndExpand" Spacing="0">
+            <Grid HorizontalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Frame
+                    BackgroundColor="{Binding BackgroundColor, Source={x:Reference this}}"
+                    BorderColor="#e5e5e5"
+                    CornerRadius="5"
+                    HasShadow="False"
+                    Padding="0">
+                    <StackLayout Margin="0" Padding="6" VerticalOptions="Center">
+                        <controls:ContentControl x:Name="contentControl" VerticalOptions="Center" IsVisible="false"/>
+                        <controls:ContentControl x:Name="placeholderControl" VerticalOptions="Center" IsVisible="true"/>
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnDropdownEntryTapped" />
+                    </Frame.GestureRecognizers>
+                </Frame>
+                <Button x:Name="DropdownButton" Clicked="OnDropdownButtonClicked" Margin="0" WidthRequest="40" HeightRequest="40" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" BorderRadius="0" BorderWidth="0" BackgroundColor="Transparent">
+                    <Button.ImageSource>
+                        <FontImageSource
+                            FontFamily="MaterialDesign"
+                            Glyph="{x:Static materialdesign:MaterialdDesignIcons.MenuDown}"
+                            Color="{Binding TextColor, Source={x:Reference this}}"
+                            Size="20" />
+                    </Button.ImageSource>
+                </Button>
+            </Grid>
+            <Frame x:Name="DropdownPanel"
+                   BackgroundColor="{Binding BackgroundColor, Source={x:Reference this}}"
+                   BorderColor="#e5e5e5"
+                   HasShadow="False"
+                   IsVisible="False"
+                   Margin="0"
+                   Padding="0">
+                <StackLayout>
+                    <Grid HorizontalOptions="FillAndExpand">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Frame
+                            BackgroundColor="{Binding BackgroundColor, Source={x:Reference this}}"
+                            BorderColor="#e5e5e5"
+                            CornerRadius="5"
+                            HasShadow="False"/>
+                        <controls:BorderlessEntry x:Name="SearchTextEntry"
+                            Margin="6"
+                            Placeholder="Search..."
+                            BackgroundColor="{Binding BackgroundColor, Source={x:Reference this}}"
+                            TextColor="{Binding TextColor, Source={x:Reference this}}"
+                            TextChanged="OnSearchTextChanged"
+                            FontSize="14"/>
+                    </Grid>
+                    <ListView x:Name="DropdownListView"
+                        VerticalOptions="CenterAndExpand"
+                        ItemTapped="OnDropdownItemTapped"
+                        ItemSelected="OnDropdownItemSelected"
+                        SelectionMode="None"
+                        Margin="0"
+                        MinimumHeightRequest="200"
+                        HeightRequest="250"/>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

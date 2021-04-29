@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
@@ -101,12 +102,102 @@ namespace Sample
             "Azure"
         };
 
+
+        private readonly IList<CatBreed> ALL_CAT_BREEDS = new List<CatBreed>()  {
+            new CatBreed
+            {
+                Photo = "https://d17fnq9dkz9hgj.cloudfront.net/breed-uploads/2018/08/american-shorthair-card-large.jpg?bust=1535570019&width=200",
+                Name = "American Shorthair"
+            },
+            new CatBreed
+            {
+                Photo = "https://d17fnq9dkz9hgj.cloudfront.net/breed-uploads/2018/08/bengal-card-large.jpg?bust=1535569966&width=200",
+                Name = "Bengal"
+            },
+            new CatBreed
+            {
+                Photo = "https://d17fnq9dkz9hgj.cloudfront.net/breed-uploads/2018/08/british-shorthair-card-large.jpg?bust=1535569902&width=200",
+                Name = "British Shorthair"
+            },
+            new CatBreed
+            {
+                Photo = "https://d17fnq9dkz9hgj.cloudfront.net/breed-uploads/2018/08/himalayan-card-large.jpg?bust=1535569786&width=200",
+                Name = "Himalayan"
+            },
+            new CatBreed
+            {
+                Photo = "https://d17fnq9dkz9hgj.cloudfront.net/breed-uploads/2018/08/norwegian-forest-cat-card-large.jpg?bust=1535569662&width=200",
+                Name = "Norwegian Forest Cat"
+            },
+            new CatBreed
+            {
+                Photo = "https://d17fnq9dkz9hgj.cloudfront.net/breed-uploads/2018/08/singapura-card-large-1.jpg?bust=1540317184&width=200",
+                Name = "Singapura"
+            },
+            new CatBreed
+            {
+                Photo = "https://d17fnq9dkz9hgj.cloudfront.net/breed-uploads/2018/08/turkish-angora-card-large.jpg?bust=1535569494&width=200",
+                Name = "Turkish Angora"
+            },
+            new CatBreed
+            {
+                Photo = "https://d17fnq9dkz9hgj.cloudfront.net/breed-uploads/2018/08/turkish-van-card-large.jpg?bust=1535569485&width=200",
+                Name = "Turkish Van"
+            },
+            new CatBreed
+            {
+                Photo = "https://d17fnq9dkz9hgj.cloudfront.net/breed-uploads/2021/01/PF_TuxedoCat_600x260.jpg?bust=1611699764&width=200",
+                Name = "Tuxedo"
+            },
+        };
+        public ObservableCollection<CatBreed> CatBreedList { get; set; }  = new ObservableCollection<CatBreed>();
+        private CatBreed _selectedCatBreed;
+        public CatBreed SelectedCatBreed
+        {
+            get => _selectedCatBreed;
+            set
+            {
+                _selectedCatBreed = value;
+                NotifyPropertyChanged();
+            }
+        }
+        void OnCatBreedSelected(System.Object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
+        {
+            SelectedCatBreed = e.SelectedItem as CatBreed;
+        }
+
+        void OnSearchTextChanged(System.Object sender, Xamarin.Forms.TextChangedEventArgs e)
+        {
+            CatBreedList.Clear();
+            if (string.IsNullOrEmpty(e.NewTextValue))
+            {
+                foreach(CatBreed cb in ALL_CAT_BREEDS)
+                {
+                    CatBreedList.Add(cb);
+                }
+            }
+            else
+            {
+                var filtered = ALL_CAT_BREEDS.Where(x => x.Name.ToLower().Contains(e.NewTextValue.ToLower()));
+                foreach (CatBreed cb in filtered)
+                {
+                    CatBreedList.Add(cb);
+                }
+            }
+        }
+
+
         public MainPage()
         {
             InitializeComponent();
             BindingContext = this;
 
             EmailEntry.Text = "a@b.cd";
+
+            foreach (CatBreed cb in ALL_CAT_BREEDS)
+            {
+                CatBreedList.Add(cb);
+            }
         }
 
         private async void OnQuoteTextChanged(object sender, TextChangedEventArgs e)
@@ -154,6 +245,7 @@ namespace Sample
         {
             Debug.WriteLine("Unfocus");
         }
+
     }
 
     public class Quote
@@ -161,4 +253,11 @@ namespace Sample
         public string Words { get; set; }
         public string Author { get; set; }
     }
+
+    public class CatBreed
+    {
+        public string Photo { get; set; }
+        public string Name { get; set; }
+    }
+
 }

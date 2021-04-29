@@ -23,6 +23,13 @@
                 <Setter Property="FontSize" Value="12" />
                 <Setter Property="HorizontalTextAlignment" Value="Start" />
             </Style>
+            <Style x:Key="CatNameLabel" TargetType="Label">
+                <Setter Property="Margin" Value="0" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="HorizontalTextAlignment" Value="Start" />
+            </Style>
             <Style x:Key="ControlGroup" TargetType="StackLayout">
                 <Setter Property="Margin" Value="20,5,20,5" />
             </Style>
@@ -100,7 +107,9 @@
                     <controls:FancyDropdown x:Name="ColorFancyDropdown"
                             ItemsSource="{Binding ColorList}"
                             SelectedItem="{Binding Color, Mode=TwoWay}"
-                            ItemSelected="OnColorSelected">
+                            ItemSelected="OnColorSelected"
+                            BackgroundColor="#fcfcfc"
+                            TextColor="Black">
                         <controls:FancyDropdown.PlaceholderTemplate>
                             <DataTemplate>
                                 <Label TextColor="Black" Text="Please pick a color" Margin="0" FontSize="14" />
@@ -127,6 +136,43 @@
                     </controls:FancyDropdown>
                 </StackLayout>
 
+                <Label Text="Fuzzy Dropdown" Style="{StaticResource TitleLabel}" />
+                <StackLayout x:Name="CatBreedsGroup" Margin="20,5,20,5">
+                    <Label Text="Cat Breed:" />
+
+                    <controls:FuzzyDropdown x:Name="CatBreedFuzzyDropdown"
+                            ItemsSource="{Binding CatBreedList}"
+                            SelectedItem="{Binding SelectedCatBreed, Mode=TwoWay}"
+                            ItemSelected="OnCatBreedSelected"
+                            SearchTextChanged="OnSearchTextChanged"
+                            BackgroundColor="#fcfcfc"
+                            TextColor="Black">
+                        <controls:FuzzyDropdown.PlaceholderTemplate>
+                            <DataTemplate>
+                                <Label Text="Please pick a cat breed" Margin="0" FontSize="14" Style="{StaticResource CatNameLabel}" />
+                            </DataTemplate>
+                        </controls:FuzzyDropdown.PlaceholderTemplate>
+                        <controls:FuzzyDropdown.ContentTemplate>
+                            <DataTemplate>
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Margin="6, 0">
+                                    <Image Source="{Binding Photo}" WidthRequest="50" HeightRequest="20"/>
+                                    <Label Text="{Binding Name}" LineBreakMode="NoWrap" Style="{StaticResource CatNameLabel}"/>
+                                </StackLayout>
+                            </DataTemplate>
+                        </controls:FuzzyDropdown.ContentTemplate>
+                        <controls:FuzzyDropdown.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Margin="6, 0">
+                                        <Image Source="{Binding Photo}" WidthRequest="50" HeightRequest="20"/>
+                                        <Label Text="{Binding Name}" LineBreakMode="NoWrap" Style="{StaticResource CatNameLabel}"/>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </controls:FuzzyDropdown.ItemTemplate>
+                    </controls:FuzzyDropdown>
+                </StackLayout>
+
                 <Label Text="Text Entry" Style="{StaticResource TitleLabel}" />
                 <StackLayout Style="{StaticResource ControlGroup}">
                     <Label Text="First Name (*)" />
@@ -149,11 +195,11 @@
                 <Label Text="Date/Time Picker" Style="{StaticResource TitleLabel}" />
                 <StackLayout x:Name="DateGroup" Margin="20,5,20,5">
                     <Label Text="Date:" />
-                    <controls:DatePicker x:Name="DateEntry" />
+                    <controls:DatePicker x:Name="DateEntry" BackgroundColor="#fcfcfc" TextColor="Black"/>
                 </StackLayout>
                 <StackLayout x:Name="StartTimeGroup" Margin="20,5,20,5">
                     <Label Text="Time:" />
-                    <controls:TimePicker />
+                    <controls:TimePicker BackgroundColor="#fcfcfc" TextColor="Black"/>
                 </StackLayout>
             </StackLayout>
         </ScrollView>
