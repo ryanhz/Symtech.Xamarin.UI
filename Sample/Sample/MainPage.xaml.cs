@@ -245,7 +245,6 @@ namespace Sample
         {
             Debug.WriteLine("Unfocus");
         }
-
     }
 
     public class Quote

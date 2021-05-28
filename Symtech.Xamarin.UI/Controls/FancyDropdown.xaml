@@ -11,7 +11,7 @@
     </ContentView.Resources>
     <ContentView.Content>
         <StackLayout HorizontalOptions="FillAndExpand" Spacing="0">
-            <Grid HorizontalOptions="FillAndExpand">
+            <Grid x:Name="DropdownHeader" HorizontalOptions="Start" IsVisible="{Binding IsTopBarVisible}" WidthRequest="200">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
@@ -43,7 +43,7 @@
                    BackgroundColor="{Binding BackgroundColor, Source={x:Reference this}}"
                    BorderColor="#e5e5e5"
                    HasShadow="False"
-                   IsVisible="False"
+                   IsVisible="{Binding IsBottomBarVisible}"
                    Margin="0"
                    Padding="0">
                 <ListView x:Name="DropdownListView"
