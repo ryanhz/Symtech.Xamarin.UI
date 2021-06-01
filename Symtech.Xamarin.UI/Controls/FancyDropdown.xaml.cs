@@ -23,22 +23,6 @@ namespace Symtech.Xamarin.UI.Controls
 
         public static readonly BindableProperty ItemSelectedCommandProperty = BindableProperty.Create(nameof(ItemSelectedCommand), typeof(ICommand), typeof(FancyDropdown), null);
 
-        public static readonly BindableProperty IsTopBarVisibleProperty = BindableProperty.Create(nameof(IsTopBarVisible), typeof(bool), typeof(FancyDropdown), true, BindingMode.TwoWay, 
-            propertyChanged: new BindableProperty.BindingPropertyChangedDelegate(OnTopBarVisibilityChanged));
-        public static readonly BindableProperty IsBottomBarVisibleProperty = BindableProperty.Create(nameof(IsBottomBarVisible), typeof(bool), typeof(FancyDropdown), false, BindingMode.TwoWay, 
-            propertyChanged: new BindableProperty.BindingPropertyChangedDelegate(OnBottomBarVisibilityChanged));
-
-        public bool IsTopBarVisible
-        {
-            get => (bool)GetValue(IsTopBarVisibleProperty);
-            set => SetValue(IsTopBarVisibleProperty, value);
-        }
-        public bool IsBottomBarVisible
-        {
-            get => (bool) GetValue(IsBottomBarVisibleProperty);
-            set => SetValue(IsBottomBarVisibleProperty, value);
-        }
-
         public Color TextColor
         {
             get => (Color)GetValue(TextColorProperty);
@@ -91,8 +75,6 @@ namespace Symtech.Xamarin.UI.Controls
             InitializeComponent();
             contentControl.BindingContext = null;
 
-            DropdownHeader.IsVisible = IsTopBarVisible;
-            DropdownPanel.IsVisible = IsBottomBarVisible;
             ItemSelected += OnDropdownItemSelected;
         }
 
@@ -117,21 +99,6 @@ namespace Symtech.Xamarin.UI.Controls
             if (bindable is FancyDropdown fancyDropdown && newValue is IEnumerable itemsSource)
             {
                 fancyDropdown.DropdownListView.ItemsSource = itemsSource;
-            }
-        }
-
-        private static void OnTopBarVisibilityChanged(BindableObject bindable, object oldValue, object newValue)
-        {
-            if (bindable is FancyDropdown fancyDropdown && newValue is bool isTopBarVisible)
-            {
-                fancyDropdown.DropdownHeader.IsVisible = isTopBarVisible;
-            }
-        }
-        private static void OnBottomBarVisibilityChanged(BindableObject bindable, object oldValue, object newValue)
-        {
-            if (bindable is FancyDropdown fancyDropdown && newValue is bool isBottomBarVisible)
-            {
-                fancyDropdown.DropdownPanel.IsVisible = isBottomBarVisible;
             }
         }
 
