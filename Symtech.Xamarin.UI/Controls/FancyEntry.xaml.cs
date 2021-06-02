@@ -16,6 +16,7 @@ namespace Symtech.Xamarin.UI.Controls
         public static readonly BindableProperty TextColorProperty = BindableProperty.Create("TextColor", typeof(Color), typeof(FancyEntry), default(Color), BindingMode.TwoWay, propertyChanged: new BindableProperty.BindingPropertyChangedDelegate(OnTextPropertyChanged));
 
         public static readonly BindableProperty TextProperty = BindableProperty.Create("Text", typeof(string), typeof(FancyEntry), string.Empty, BindingMode.TwoWay, null);
+        public static readonly BindableProperty FontSizeProperty = BindableProperty.Create(nameof(FontSize), typeof(double), typeof(FancyEntry), (object)-1.0, BindingMode.OneWay, null);
         public static readonly BindableProperty TitleProperty = BindableProperty.Create("Title", typeof(string), typeof(FancyEntry), string.Empty, BindingMode.TwoWay, null);
         public static readonly BindableProperty ReturnTypeProperty = BindableProperty.Create(nameof(ReturnType), typeof(ReturnType), typeof(FancyEntry), ReturnType.Default);
         public static readonly BindableProperty IsPasswordProperty = BindableProperty.Create("IsPassword", typeof(bool), typeof(FancyEntry), default(bool));
@@ -61,6 +62,12 @@ namespace Symtech.Xamarin.UI.Controls
         {
             get => (string)GetValue(TextProperty);
             set => SetValue(TextProperty, value);
+        }
+
+        public double FontSize
+        {
+            get => (double)GetValue(FontSizeProperty);
+            set => SetValue(FontSizeProperty, value);
         }
 
         public string Title
@@ -159,7 +166,7 @@ namespace Symtech.Xamarin.UI.Controls
 
             EntryLabel.ScaleYTo(0.8);
             EntryLabel.ScaleXTo(0.8);
-            EntryLabel.TranslateTo(0, -(EntryLabel.Height));
+            EntryLabel.TranslateTo(0, -(EntryLabel.Height + EntryLabel.Margin.Top + EntryLabel.Margin.Bottom) * 0.5);
         }
 
         void HandleCompleted(object sender, EventArgs e)

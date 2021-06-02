@@ -188,8 +188,8 @@
                 </StackLayout>
 
                 <Label Text="Fancy Entry" Style="{StaticResource TitleLabel}" />
-                <controls:FancyEntry x:Name="EmailEntry" Title="Email" Style="{StaticResource FancyEntry}" Keyboard="Email" ReturnType="Next"/>
-                <controls:FancyEntry x:Name="PasswordEntry" Title="Password" Style="{StaticResource FancyEntry}" IsPassword="true" ReturnType="Go"/>
+                <controls:FancyEntry x:Name="EmailEntry" Title="Email" Style="{StaticResource FancyEntry}" Keyboard="Email" ReturnType="Next" />
+                <controls:FancyEntry x:Name="PasswordEntry" Title="Password" Style="{StaticResource FancyEntry}" IsPassword="true" ReturnType="Go" FontSize="36" />
                 <Button x:Name="SignInButton" Text="Sign In"/>
 
                 <Label Text="Date/Time Picker" Style="{StaticResource TitleLabel}" />

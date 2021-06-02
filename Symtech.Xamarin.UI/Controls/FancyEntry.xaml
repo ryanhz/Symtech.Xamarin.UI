@@ -11,7 +11,7 @@
                     BackgroundColor="{Binding BackgroundColor, Source={x:Reference this}}"
                     BorderColor="{Binding BorderColor, Source={x:Reference this}}"
                     CornerRadius="5"
-                    HasShadow="False"/>
+                    HasShadow="False" />
                 <StackLayout VerticalOptions="Start" HorizontalOptions="Start"
                     BackgroundColor="Transparent">
                     <BoxView x:Name="BorderEraser"
@@ -21,18 +21,20 @@
                 </StackLayout>
                 <Label
                     x:Name="EntryLabel"
-                    AnchorY="1"
+                    AnchorY="0.5"
                     AnchorX="0"
                     Margin="10"
                     Padding="3"
                     TextColor="{Binding TitleColor, Source={x:Reference this}}"
+                    FontSize="{Binding FontSize, Source={x:Reference this}}"
                     BackgroundColor="Transparent"
                     HorizontalOptions="Start"
                     Text="{Binding Title, Source={x:Reference this}}"/>
                 <local:BorderlessEntry
                     x:Name="InputEntry"
                     Margin="6"
-                    Text="{Binding Text, Source={x:Reference this}}" 
+                    Text="{Binding Text, Source={x:Reference this}}"
+                    FontSize="{Binding FontSize, Source={x:Reference this}}"
                     ReturnType="{Binding ReturnType, Source={x:Reference this}}"
                     IsPassword="{Binding IsPassword, Source={x:Reference this}}"
                     IsReadOnly="{Binding IsReadOnly, Source={x:Reference this}}"
