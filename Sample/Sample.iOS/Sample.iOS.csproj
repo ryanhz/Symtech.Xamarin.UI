@@ -140,6 +140,8 @@
     <ProjectReference Include="..\..\Symtech.Xamarin.UI.iOS\Symtech.Xamarin.UI.iOS.csproj">
       <Project>{CBEC3759-C6B7-49BA-9D37-50A26EAB9DEE}</Project>
       <Name>Symtech.Xamarin.UI.iOS</Name>
+      <IsAppExtension>false</IsAppExtension>
+      <IsWatchApp>false</IsWatchApp>
     </ProjectReference>
   </ItemGroup>
 </Project>

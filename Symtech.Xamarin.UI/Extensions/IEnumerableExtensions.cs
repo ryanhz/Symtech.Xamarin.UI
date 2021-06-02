@@ -558,5 +558,13 @@ namespace Symtech.Xamarin.UI.Extensions
 
             return (K)key;
         }
+
+        public static bool IsNullOrEmpty<T>(this IEnumerable<T>? collection)
+        {
+            if (collection is { })
+                return !collection.Any();
+
+            return true;
+        }
     }
 }

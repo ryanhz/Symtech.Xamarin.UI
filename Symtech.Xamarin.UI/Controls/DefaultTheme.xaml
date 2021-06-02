@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ResourceDictionary
+    x:Class="Symtech.Xamarin.UI.Controls.DefaultTheme"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:Symtech.Xamarin.UI.Controls"
+    xmlns:formatters="clr-namespace:Symtech.Xamarin.UI.Controls.Api.Formatters">
+    <formatters:DayOfWeek3CaractersFormat x:Key="DayOfWeekFormatter" />
+
+    <Style TargetType="controls:CalendarView">
+        <Setter Property="DaysOfWeekFormatter" Value="{StaticResource DayOfWeekFormatter}" />
+        <Setter Property="FirstDayOfWeek" Value="Monday" />
+        <Setter Property="IsPreviewDaysActive" Value="True" />
+    </Style>
+
+    <Style Class="CalendarView" TargetType="StackLayout">
+        <Setter Property="Spacing" Value="0" />
+    </Style>
+
+    <Style Class="CalendarIcon" TargetType="Label">
+        <Setter Property="FontSize" Value="24" />
+        <Setter Property="TextColor" Value="#848690" />
+    </Style>
+
+    <Style Class="CalendarHeader" TargetType="FlexLayout">
+        <Setter Property="HorizontalOptions" Value="Start" />
+        <Setter Property="HeightRequest" Value="30" />
+        <Setter Property="AlignItems" Value="Center" />
+        <Setter Property="Padding" Value="0,0" />
+        <Setter Property="Margin" Value="20,0" />
+    </Style>
+
+    <Style Class="CalendarHeaderPreviousButton" TargetType="Button">
+        <Setter Property="Text" Value="&lt;" />
+        <Setter Property="CornerRadius" Value="5" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="TextColor" Value="White" />
+        <Setter Property="BackgroundColor" Value="{DynamicResource PrimaryColor}" />
+        <Setter Property="HeightRequest" Value="30" />
+        <Setter Property="WidthRequest" Value="30" />
+        <Setter Property="Padding" Value="0" />
+    </Style>
+
+    <Style Class="CalendarHeaderMonthName" TargetType="Label">
+        <Setter Property="FlexLayout.Grow" Value="1" />
+        <Setter Property="FontSize" Value="Body" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
+        <Setter Property="HorizontalTextAlignment" Value="Center" />
+    </Style>
+
+    <Style Class="CalendarHeaderNextButton" TargetType="Button">
+        <Setter Property="Text" Value="&gt;" />
+        <Setter Property="CornerRadius" Value="5" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="HeightRequest" Value="30" />
+        <Setter Property="WidthRequest" Value="30" />
+        <Setter Property="TextColor" Value="White" />
+        <Setter Property="BackgroundColor" Value="{DynamicResource PrimaryColor}" />
+        <Setter Property="Padding" Value="0" />
+    </Style>
+
+    <Style Class="CalendarDaysOfWeek" TargetType="Grid">
+        <Setter Property="Margin" Value="20,0" />
+    </Style>
+
+    <Style
+        ApplyToDerivedTypes="True"
+        Class="CalendarDayOfWeek"
+        TargetType="Label">
+        <Setter Property="FontSize" Value="Body" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="HeightRequest" Value="56" />
+        <Setter Property="HorizontalTextAlignment" Value="Center" />
+        <Setter Property="VerticalTextAlignment" Value="Center" />
+        <Setter Property="TextTransform" Value="Uppercase" />
+
+        <Setter Property="VisualStateManager.VisualStateGroups">
+            <VisualStateGroupList>
+                <VisualStateGroup>
+                    <VisualState x:Name="IsWeekend">
+                        <VisualState.Setters>
+                            <Setter Property="TextColor" Value="{DynamicResource PrimaryColor}" />
+                        </VisualState.Setters>
+                    </VisualState>
+
+                    <VisualState x:Name="IsNotWeekend">
+                        <VisualState.Setters>
+                            <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateGroupList>
+        </Setter>
+    </Style>
+
+    <Style Class="CalendarLineSeparator" TargetType="BoxView">
+        <Setter Property="HeightRequest" Value="2" />
+        <Setter Property="IsVisible" Value="true" />
+    </Style>
+
+    <Style Class="CalendarDays" TargetType="Grid">
+        <Setter Property="ColumnSpacing" Value="0" />
+        <Setter Property="RowSpacing" Value="0" />
+        <Setter Property="Margin" Value="20,0" />
+    </Style>
+
+    <Style
+        ApplyToDerivedTypes="True"
+        Class="CalendarDay"
+        TargetType="Frame">
+        <Setter Property="CornerRadius" Value="5" />
+        <Setter Property="HasShadow" Value="False" />
+        <Setter Property="HeightRequest" Value="36" />
+        <Setter Property="WidthRequest" Value="54" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Margin" Value="0,8" />
+
+        <Setter Property="VisualStateManager.VisualStateGroups">
+            <VisualStateGroupList>
+                <VisualStateGroup>
+                    <VisualState x:Name="IsToday">
+                        <VisualState.Setters>
+                            <Setter Property="BackgroundColor" Value="{DynamicResource PrimaryColor}" />
+                        </VisualState.Setters>
+                    </VisualState>
+
+                    <VisualState x:Name="Selected">
+                        <VisualState.Setters>
+                            <Setter Property="BackgroundColor" Value="{DynamicResource PrimaryColor}" />
+                            <Setter Property="Margin" Value="0,1"/>
+                            <Setter Property="WidthRequest" Value="48" />
+                            <Setter Property="HeightRequest" Value="48" />
+                        </VisualState.Setters>
+                    </VisualState>
+
+                    <VisualState x:Name="Included">
+                        <VisualState.Setters>
+                            <Setter Property="BackgroundColor" Value="{DynamicResource PrimaryColorLight}" />
+                            <Setter Property="CornerRadius" Value="0" />
+                        </VisualState.Setters>
+                    </VisualState>
+
+                    <VisualState x:Name="UnSelected">
+                        <VisualState.Setters>
+                            <Setter Property="BackgroundColor" Value="Transparent" />
+                        </VisualState.Setters>
+                    </VisualState>
+
+                    <VisualState x:Name="HasEvents">
+                        <VisualState.Setters>
+                            <Setter Property="BackgroundColor" Value="#725AEF" />
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateGroupList>
+        </Setter>
+    </Style>
+
+    <Style Class="CalendarDayLayout" TargetType="FlexLayout">
+        <Setter Property="Direction" Value="Column" />
+        <Setter Property="JustifyContent" Value="Center" />
+        <Setter Property="AlignItems" Value="Center" />
+    </Style>
+
+    <Style Class="CalendarDayNumber" TargetType="Label">
+        <Setter Property="FontSize" Value="Medium" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="HorizontalTextAlignment" Value="Center" />
+        <Setter Property="VerticalTextAlignment" Value="Center" />
+
+        <Setter Property="VisualStateManager.VisualStateGroups">
+            <VisualStateGroupList>
+                <VisualStateGroup>
+
+                    <VisualState x:Name="IsPreview">
+                        <VisualState.Setters>
+                            <Setter Property="TextColor" Value="#B7BAC6" />
+                        </VisualState.Setters>
+                    </VisualState>
+
+                    <VisualState x:Name="IsWeekend">
+                        <VisualState.Setters>
+                            <Setter Property="TextColor" Value="{DynamicResource PrimaryColor}" />
+                        </VisualState.Setters>
+                    </VisualState>
+
+                    <VisualState x:Name="IsToday">
+                        <VisualState.Setters>
+                            <Setter Property="TextColor" Value="White" />
+                        </VisualState.Setters>
+                    </VisualState>
+
+                    <VisualState x:Name="IsNotPreview">
+                        <VisualState.Setters>
+                            <Setter Property="TextColor" Value="#848690" />
+                        </VisualState.Setters>
+                    </VisualState>
+
+                    <VisualState x:Name="Selected">
+                        <VisualState.Setters>
+                            <Setter Property="TextColor" Value="White" />
+                        </VisualState.Setters>
+                    </VisualState>
+
+                    <VisualState x:Name="Included">
+                        <VisualState.Setters>
+                            <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
+                        </VisualState.Setters>
+                    </VisualState>
+
+                    <VisualState x:Name="HasEvents">
+                        <VisualState.Setters>
+                            <Setter Property="TextColor" Value="White" />
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateGroupList>
+        </Setter>
+    </Style>
+
+    <Style Class="CalendarDayEvent" TargetType="BoxView">
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="HeightRequest" Value="0" />
+        <Setter Property="WidthRequest" Value="0" />
+    </Style>
+</ResourceDictionary>

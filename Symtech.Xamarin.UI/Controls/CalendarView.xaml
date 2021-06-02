@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="Symtech.Xamarin.UI.Controls.CalendarView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:materialdesign="clr-namespace:MaterialdDesign;assembly=Symtech.Xamarin.UI"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <StackLayout StyleClass="CalendarView">
+        <Frame x:Name="CalendarHeader" CornerRadius="5" Padding="10" Margin="5,0" HasShadow="False" IsVisible="{Binding IsHeaderVisible}" BorderColor="#E5E5E5" BackgroundColor="{DynamicResource ForegroundColor}">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnCalendarTapped"/>
+            </Frame.GestureRecognizers>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="6*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Label x:Name="DateRangeLabel" Grid.Column="0" HorizontalOptions="Start" VerticalOptions="Center" FontSize="14" FontAttributes="None" StyleClass="CalendarHeaderMonthName"/>
+                <Label x:Name="CalendarIcon" Grid.Column="1" HorizontalOptions="End" VerticalOptions="Center" FontFamily="MaterialDesign" Text="{x:Static materialdesign:MaterialdDesignIcons.CalendarMonth}" StyleClass="CalendarIcon">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnCalendarTapped"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </Grid>
+        </Frame>
+        <StackLayout x:Name="CalendarContent" IsVisible="{Binding IsContentVisible}">
+            <BoxView StyleClass="CalendarLineSeparator"/>
+            <FlexLayout x:Name="MonthPicker" Grid.Column="0" StyleClass="CalendarHeader">
+                <Button
+                x:Name="PreviousButton"
+                Clicked="OnPreviousMonthClick"
+                StyleClass="CalendarHeaderPreviousButton" />
+
+                <Label x:Name="MonthName" StyleClass="CalendarHeaderMonthName" />
+
+                <Button
+                x:Name="NextButton"
+                Clicked="OnNextMonthClick"
+                StyleClass="CalendarHeaderNextButton" />
+            </FlexLayout>
+            <BoxView StyleClass="CalendarLineSeparator"/>
+            
+            <Grid x:Name="CalendarDaysOfWeekContainer" StyleClass="CalendarDaysOfWeek" />
+
+            <BoxView StyleClass="CalendarLineSeparator"/>
+
+            <Grid x:Name="CalendarDaysContainer" StyleClass="CalendarDays" />
+
+            <BoxView StyleClass="CalendarLineSeparator"/>
+        </StackLayout>
+    </StackLayout>
+</ContentView>

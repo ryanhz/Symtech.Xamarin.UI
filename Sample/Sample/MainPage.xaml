@@ -201,6 +201,16 @@
                     <Label Text="Time:" />
                     <controls:TimePicker BackgroundColor="#fcfcfc" TextColor="Black"/>
                 </StackLayout>
+
+                <Label Text="Calendar View" Style="{StaticResource TitleLabel}" />
+                <StackLayout x:Name="CalendarViewStackLayout" Margin="20,5,20,5">
+                    <StackLayout>
+                        <controls:CalendarView
+                            x:Name="CalendarView"
+                            IsHeaderVisible="True"/>
+                    </StackLayout>
+                    
+                </StackLayout>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
