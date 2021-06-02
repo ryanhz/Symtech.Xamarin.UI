@@ -2,14 +2,14 @@
 <package >
   <metadata>
     <id>Symtech.Xamarin.UI</id>
-    <version>1.1.7</version>
+    <version>1.1.8</version>
     <authors>Ryan Hu</authors>
     <owners>Ryan Hu</owners>
     <license type="file">.\LICENSE.txt</license>
     <projectUrl>https://bitbucket.org/symtechnz/symtech.xamarin.ui</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Simple Xamarin Forms UI Library</description>
-    <releaseNotes>Added new component: FuzzyDropdown.</releaseNotes>
+    <releaseNotes>Added new component: Calendar view.</releaseNotes>
     <copyright>Copyright : Free </copyright>
     <tags>xamarin, xamarin.forms, android, ios, plugins, plugin for xamarin, UI</tags>
     <dependencies>
