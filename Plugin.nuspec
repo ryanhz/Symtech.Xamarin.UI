@@ -45,7 +45,7 @@
   <files>
     <file src=".\LIC*" target="" />
     <!--Share-->
-    <file src=".\Symtech.Xamarin.UI\bin\Release\netstandard2.0\Symtech.Xamarin.UI.*" target="lib\netstandard" />
+    <file src=".\Symtech.Xamarin.UI\bin\Release\netstandard2.1\Symtech.Xamarin.UI.*" target="lib\netstandard" />
 
     <!--Xamarin.Android-->
     <file src=".\Symtech.Xamarin.UI.Android\bin\Release\Symtech.Xamarin.UI.*" target="lib\MonoAndroid10" />
