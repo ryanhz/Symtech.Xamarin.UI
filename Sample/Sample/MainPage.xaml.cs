@@ -245,6 +245,23 @@ namespace Sample
         {
             Debug.WriteLine("Unfocus");
         }
+
+        private void EmailEntry_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void OnPasswordEntryTextChanged(object sender, TextChangedEventArgs e)
+        {
+            var passwordLength = PasswordEntry.Text.Length;
+            PasswordLengthLabel.Text = PasswordEntry.Text.Length > 1 ? $"Your password has {passwordLength} characters" : $"Your password has {passwordLength} character";
+        }
+
+        private void OnMobilePhoneEntryTextChanged(object sender, TextChangedEventArgs e)
+        {
+            var mobileLength = MobilePhoneEntry.Text.Length;
+            MobileLengthLabel.Text = MobilePhoneEntry.Text.Length > 1 ? $"Your phone number has {mobileLength} characters" : $"Your phone number has {mobileLength} character";
+        }
     }
 
     public class Quote

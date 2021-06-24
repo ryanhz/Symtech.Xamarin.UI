@@ -184,13 +184,15 @@
                 </StackLayout>
                 <StackLayout Style="{StaticResource ControlGroup}">
                     <Label Text="Mobile Phone" />
-                    <controls:TextEntry x:Name="MobilePhoneEntry" Text="{Binding MobilePhone}" Keyboard="Telephone" ReturnType="Go"/>
+                    <controls:TextEntry x:Name="MobilePhoneEntry" Text="{Binding MobilePhone}" Keyboard="Telephone" ReturnType="Go" TextChanged="OnMobilePhoneEntryTextChanged"/>
+                    <Label x:Name="MobileLengthLabel" HorizontalOptions="Center" Text="Your phone number has 0 charater"/>
                 </StackLayout>
 
                 <Label Text="Fancy Entry" Style="{StaticResource TitleLabel}" />
                 <controls:FancyEntry x:Name="EmailEntry" Title="Email" Style="{StaticResource FancyEntry}" Keyboard="Email" ReturnType="Next" />
-                <controls:FancyEntry x:Name="PasswordEntry" Title="Password" Style="{StaticResource FancyEntry}" IsPassword="true" ReturnType="Go" FontSize="36" />
+                <controls:FancyEntry x:Name="PasswordEntry" Title="Password" Style="{StaticResource FancyEntry}" IsPassword="true" ReturnType="Go" FontSize="36" TextChanged="OnPasswordEntryTextChanged"/>
                 <Button x:Name="SignInButton" Text="Sign In"/>
+                <Label x:Name="PasswordLengthLabel" HorizontalOptions="Center" Text="Your password has 0 charater"/>
 
                 <Label Text="Date/Time Picker" Style="{StaticResource TitleLabel}" />
                 <StackLayout x:Name="DateGroup" Margin="20,5,20,5">

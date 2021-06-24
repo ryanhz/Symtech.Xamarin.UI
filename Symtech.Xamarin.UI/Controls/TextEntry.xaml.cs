@@ -120,5 +120,12 @@ namespace Symtech.Xamarin.UI.Controls
             Completed?.Invoke(this, e);
         }
 
+        public event EventHandler<TextChangedEventArgs> TextChanged;
+
+        private void OnInputEntryTextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextChanged?.Invoke(this, new TextChangedEventArgs(e.OldTextValue, e.NewTextValue));
+        }
+
     }
 }
