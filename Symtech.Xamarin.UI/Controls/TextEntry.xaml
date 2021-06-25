@@ -24,6 +24,7 @@
                     Keyboard="{Binding Keyboard, Source={x:Reference this}}"
                     Completed="HandleCompleted"
                     BackgroundColor="Transparent"
+                    TextChanged="OnInputEntryTextChanged"
                     TextColor="{Binding TextColor, Source={x:Reference this}}"/>
             </Grid>
         </StackLayout>
