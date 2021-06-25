@@ -178,7 +178,7 @@ namespace Symtech.Xamarin.UI.Controls
 
         private void OnInputEntryTextChanged(object sender, TextChangedEventArgs e)
         {
-            TextChanged?.Invoke(this, new TextChangedEventArgs(e.OldTextValue, e.NewTextValue));
+            TextChanged?.Invoke(this, e);
         }
 
     }
