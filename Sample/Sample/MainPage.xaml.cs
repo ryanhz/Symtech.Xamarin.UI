@@ -262,6 +262,16 @@ namespace Sample
             var mobileLength = MobilePhoneEntry.Text.Length;
             MobileLengthLabel.Text = MobilePhoneEntry.Text.Length > 1 ? $"Your phone number has {mobileLength} characters" : $"Your phone number has {mobileLength} character";
         }
+
+        private void OnFocusEntryFocused(object sender, FocusEventArgs e)
+        {
+            TextEntryFocusedLabel.Text = "Focused";
+        }
+
+        private void OnFocusEntryUnfocused(object sender, FocusEventArgs e)
+        {
+            TextEntryFocusedLabel.Text = "Not Focused";
+        }
     }
 
     public class Quote

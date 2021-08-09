@@ -23,6 +23,8 @@
                     IsReadOnly="{Binding IsReadOnly, Source={x:Reference this}}"
                     Keyboard="{Binding Keyboard, Source={x:Reference this}}"
                     Completed="HandleCompleted"
+                    Focused="OnInputEntryFocused"
+                    Unfocused="OnInputEntryUnfocused"
                     BackgroundColor="Transparent"
                     TextChanged="OnInputEntryTextChanged"
                     TextColor="{Binding TextColor, Source={x:Reference this}}"/>

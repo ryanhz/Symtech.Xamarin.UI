@@ -24,6 +24,12 @@ namespace Symtech.Xamarin.UI.Controls
         public static readonly BindableProperty IsReadOnlyProperty = BindableProperty.Create(nameof(IsReadOnly), typeof(bool), typeof(TextEntry), default(bool));
         public static readonly BindableProperty KeyboardProperty = BindableProperty.Create("Keyboard", typeof(Keyboard), typeof(TextEntry), Keyboard.Default, coerceValue: (o, v) => (Keyboard)v ?? Keyboard.Default);
 
+        public event EventHandler<TextChangedEventArgs> TextChanged;
+
+        public new event EventHandler<FocusEventArgs> Focused;
+
+        public new event EventHandler<FocusEventArgs> Unfocused;
+
         public TextEntry()
         {
             InitializeComponent();
@@ -104,7 +110,6 @@ namespace Symtech.Xamarin.UI.Controls
             }
         }
 
-
         protected override void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             base.OnPropertyChanged(propertyName);
@@ -120,12 +125,19 @@ namespace Symtech.Xamarin.UI.Controls
             Completed?.Invoke(this, e);
         }
 
-        public event EventHandler<TextChangedEventArgs> TextChanged;
-
         private void OnInputEntryTextChanged(object sender, TextChangedEventArgs e)
         {
             TextChanged?.Invoke(this, e);
         }
 
+        private void OnInputEntryFocused(object sender, FocusEventArgs e)
+        {
+            Focused?.Invoke(this, e);
+        }
+
+        private void OnInputEntryUnfocused(object sender, FocusEventArgs e)
+        {
+            Unfocused?.Invoke(this, e);
+        }
     }
 }

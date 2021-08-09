@@ -187,6 +187,10 @@
                     <controls:TextEntry x:Name="MobilePhoneEntry" Text="{Binding MobilePhone}" Keyboard="Telephone" ReturnType="Go" TextChanged="OnMobilePhoneEntryTextChanged"/>
                     <Label x:Name="MobileLengthLabel" HorizontalOptions="Center" Text="Your phone number has 0 charater"/>
                 </StackLayout>
+                <StackLayout Style="{StaticResource ControlGroup}">
+                    <Label x:Name="TextEntryFocusedLabel" Text="Not Focused" />
+                    <controls:TextEntry x:Name="FocusEntry" Text="{Binding MobilePhone}" Keyboard="Telephone" ReturnType="Go" Focused="OnFocusEntryFocused" Unfocused="OnFocusEntryUnfocused"/>
+                </StackLayout>
 
                 <Label Text="Fancy Entry" Style="{StaticResource TitleLabel}" />
                 <controls:FancyEntry x:Name="EmailEntry" Title="Email" Style="{StaticResource FancyEntry}" Keyboard="Email" ReturnType="Next" />
