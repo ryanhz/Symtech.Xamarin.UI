@@ -16,8 +16,8 @@ namespace Symtech.Xamarin.UI.Controls
         public static readonly BindableProperty TitleColorProperty = BindableProperty.Create("TitleColor", typeof(Color), typeof(TextEntry), default(Color), BindingMode.TwoWay, null);
         public static readonly BindableProperty TextColorProperty = BindableProperty.Create("TextColor", typeof(Color), typeof(TextEntry), default(Color), BindingMode.TwoWay, null);
 
-        public static readonly BindableProperty HorizontalTextAlignmentProperty = Entry.HorizontalTextAlignmentProperty;
-        public static readonly BindableProperty VerticalTextAlignmentProperty = Entry.VerticalTextAlignmentProperty;
+        public static readonly BindableProperty HorizontalTextAlignmentProperty = BindableProperty.Create(nameof(HorizontalTextAlignment), typeof(TextAlignment), typeof(TextEntry), TextAlignment.Start, BindingMode.OneWay, null);
+        public static readonly BindableProperty VerticalTextAlignmentProperty = BindableProperty.Create(nameof(VerticalTextAlignment), typeof(TextAlignment), typeof(TextEntry), TextAlignment.Start, BindingMode.OneWay, null);
 
         public static readonly BindableProperty PlaceholderProperty = BindableProperty.Create("Placeholder", typeof(string), typeof(TextEntry), string.Empty, BindingMode.OneWay, null);
         public static readonly BindableProperty TextProperty = BindableProperty.Create("Text", typeof(string), typeof(TextEntry), string.Empty, BindingMode.TwoWay, null);
@@ -59,14 +59,14 @@ namespace Symtech.Xamarin.UI.Controls
 
         public TextAlignment HorizontalTextAlignment
         {
-            get { return (TextAlignment)GetValue(Entry.HorizontalTextAlignmentProperty); }
-            set { SetValue(Entry.HorizontalTextAlignmentProperty, value); }
+            get { return (TextAlignment)GetValue(HorizontalTextAlignmentProperty); }
+            set { SetValue(HorizontalTextAlignmentProperty, value); }
         }
 
         public TextAlignment VerticalTextAlignment
         {
-            get { return (TextAlignment)GetValue(Entry.VerticalTextAlignmentProperty); }
-            set { SetValue(Entry.VerticalTextAlignmentProperty, value); }
+            get { return (TextAlignment)GetValue(VerticalTextAlignmentProperty); }
+            set { SetValue(VerticalTextAlignmentProperty, value); }
         }
 
         public string Placeholder
