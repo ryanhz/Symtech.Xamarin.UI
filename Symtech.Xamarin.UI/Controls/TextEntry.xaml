@@ -15,6 +15,8 @@
                 <local:BorderlessEntry
                     x:Name="InputEntry"
                     Margin="6"
+                    HorizontalTextAlignment="{Binding HorizontalTextAlignment, Source={x:Reference this}}"
+                    VerticalTextAlignment="{Binding VerticalTextAlignment, Source={x:Reference this}}"
                     Placeholder="{Binding Placeholder, Source={x:Reference this}}" 
                     Text="{Binding Text, Source={x:Reference this}}" 
                     FontSize="{Binding FontSize, Source={x:Reference this}}"

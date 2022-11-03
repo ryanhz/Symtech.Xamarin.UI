@@ -2,14 +2,14 @@
 <package >
   <metadata>
     <id>Symtech.Xamarin.UI</id>
-    <version>1.1.9</version>
+    <version>1.2.0</version>
     <authors>Ryan Hu</authors>
     <owners>Ryan Hu</owners>
     <license type="file">.\LICENSE.txt</license>
     <projectUrl>https://bitbucket.org/symtechnz/symtech.xamarin.ui</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Simple Xamarin Forms UI Library</description>
-    <releaseNotes>Added editable text changed event to fancy entry and text entry</releaseNotes>
+    <releaseNotes>Added `HorizontalTextAlignment`/`VerticalTextAlignment` properties to text entry</releaseNotes>
     <copyright>Copyright : Free </copyright>
     <tags>xamarin, xamarin.forms, android, ios, plugins, plugin for xamarin, UI</tags>
     <dependencies>

@@ -3,6 +3,7 @@ using System.Runtime.CompilerServices;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using System.ComponentModel;
 
 namespace Symtech.Xamarin.UI.Controls
 {
@@ -14,6 +15,9 @@ namespace Symtech.Xamarin.UI.Controls
         public static readonly BindableProperty BorderColorProperty = BindableProperty.Create("BorderColor", typeof(Color), typeof(TextEntry), default(Color), BindingMode.TwoWay, null);
         public static readonly BindableProperty TitleColorProperty = BindableProperty.Create("TitleColor", typeof(Color), typeof(TextEntry), default(Color), BindingMode.TwoWay, null);
         public static readonly BindableProperty TextColorProperty = BindableProperty.Create("TextColor", typeof(Color), typeof(TextEntry), default(Color), BindingMode.TwoWay, null);
+
+        public static readonly BindableProperty HorizontalTextAlignmentProperty = Entry.HorizontalTextAlignmentProperty;
+        public static readonly BindableProperty VerticalTextAlignmentProperty = Entry.VerticalTextAlignmentProperty;
 
         public static readonly BindableProperty PlaceholderProperty = BindableProperty.Create("Placeholder", typeof(string), typeof(TextEntry), string.Empty, BindingMode.OneWay, null);
         public static readonly BindableProperty TextProperty = BindableProperty.Create("Text", typeof(string), typeof(TextEntry), string.Empty, BindingMode.TwoWay, null);
@@ -51,6 +55,18 @@ namespace Symtech.Xamarin.UI.Controls
         {
             get => (Color)GetValue(TextColorProperty);
             set => SetValue(TextColorProperty, value);
+        }
+
+        public TextAlignment HorizontalTextAlignment
+        {
+            get { return (TextAlignment)GetValue(Entry.HorizontalTextAlignmentProperty); }
+            set { SetValue(Entry.HorizontalTextAlignmentProperty, value); }
+        }
+
+        public TextAlignment VerticalTextAlignment
+        {
+            get { return (TextAlignment)GetValue(Entry.VerticalTextAlignmentProperty); }
+            set { SetValue(Entry.VerticalTextAlignmentProperty, value); }
         }
 
         public string Placeholder
